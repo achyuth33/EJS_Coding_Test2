@@ -1,0 +1,289 @@
+//Car Race
+
+"use strict";
+
+process.stdin.resume();
+process.stdin.setEncoding("utf-8");
+
+let inputString = "";
+let currentLine = 0;
+
+process.stdin.on("data", (inputStdin) => {
+  inputString += inputStdin;
+});
+
+process.stdin.on("end", (_) => {
+  inputString = inputString.trim().split("\n").map((str) => str.trim());
+  main();
+});
+
+function readLine() {
+  return inputString[currentLine++];
+}
+
+/* Please do not modify anything above this line */
+
+
+  // Create your Super Class Race and Sub Class Car here
+  class Race {
+      constructor(playerName) {
+          this.playerName=playerName
+      }
+      startRace() {
+          return "Race has started"
+      }
+      endRace() {
+          return `${this.playerName} is the winner`
+      }
+  }
+  class Car extends Race {
+      constructor(playerName,nitro,speed) {
+          super(playerName);
+          this.nitro=nitro
+          this.speed=speed
+      }
+      applyBreak() {
+          this.speed=0
+      }
+      nitroBoost() {
+          if (this.nitro>0) {
+              this.nitro=this.nitro-50
+              this.speed=this.speed+50
+          }
+      }
+      accelerate() {
+          this.nitro=this.nitro+10
+          this.speed=this.speed+20
+      }
+  }
+
+
+/* Please do not modify anything below this line */
+
+function main() {
+  const playerName = readLine();
+  const nitro = JSON.parse(readLine());
+  const speed = JSON.parse(readLine());
+
+  const car1 = new Car(playerName, nitro, speed);
+
+  console.log(car1.startRace());
+  car1.nitroBoost();
+  console.log(`Speed ${car1.speed}; Nitro ${car1.nitro}`);
+  car1.accelerate();
+  console.log(`Speed ${car1.speed}; Nitro ${car1.nitro}`);
+  console.log(car1.endRace());
+  car1.applyBreak();
+  console.log(`Speed ${car1.speed}; Nitro ${car1.nitro}`);
+}
+
+
+//Double The Numbers
+
+"use strict";
+
+process.stdin.resume();
+process.stdin.setEncoding("utf-8");
+
+let inputString = "";
+let currentLine = 0;
+
+process.stdin.on("data", (inputStdin) => {
+  inputString += inputStdin;
+});
+
+process.stdin.on("end", (_) => {
+  inputString = inputString.trim().split("\n").map((str) => str.trim());
+  main();
+});
+
+function readLine() {
+  return inputString[currentLine++];
+}
+
+function main() {
+  const myArray = JSON.parse(readLine().replace(/'/g, '"'));
+
+/* Please do not modify anything above this line */
+
+  // Write your code here
+  let newArray=myArray.map(function(data) {
+      if (typeof data != "number") {
+          return typeof data;
+      } else {
+          return data*2;
+      }
+  });
+  console.log(newArray)
+}
+
+
+
+
+//WORDS WITH VOWELS
+
+"use strict";
+
+process.stdin.resume();
+process.stdin.setEncoding("utf-8");
+
+let inputString = "";
+let currentLine = 0;
+
+process.stdin.on("data", (inputStdin) => {
+  inputString += inputStdin;
+});
+
+process.stdin.on("end", (_) => {
+  inputString = inputString.trim().split("\n").map((str) => str.trim());
+  main();
+});
+
+function readLine() {
+  return inputString[currentLine++];
+}
+
+function main() {
+  const wordsList = JSON.parse(readLine().replace(/'/g, '"'));
+  const vowelsList = ["a", "e", "i", "o", "u"];
+
+/* Please do not modify anything above this line */
+
+  // Write your code here
+  let newArray=wordsList.filter(word=> {
+      for (let i in wordsList) {
+          if (word.toLowerCase().indexOf(vowelsList[i])>0) {
+              return true
+          } else {
+              return false
+          }
+      }
+  })
+ console.log(newArray) 
+}
+
+
+//FLATTENING AND CASE COVERSION
+
+
+"use strict";
+
+process.stdin.resume();
+process.stdin.setEncoding("utf-8");
+
+let inputString = "";
+let currentLine = 0;
+
+process.stdin.on("data", (inputStdin) => {
+  inputString += inputStdin;
+});
+
+process.stdin.on("end", (_) => {
+  inputString = inputString.trim().split("\n").map((str) => str.trim());
+  main();
+});
+
+function readLine() {
+  return inputString[currentLine++];
+}
+
+function main() {
+  const nestedArray = JSON.parse(readLine().replace(/'/g, '"'));
+  const depth = JSON.parse(readLine());
+  
+/* Please do not modify anything above this line */
+  
+  // Write your code here
+  var newArray=nestedArray.flat(depth).map(changCase=> {
+      if ((changCase.length%2)==0) {
+          return changCase.toLowerCase()
+      } else {
+          return changCase.toUpperCase()
+      }
+  })
+  console.log(newArray)
+}
+
+
+//SELECTED WORDS TO UPPERCASE
+
+"use strict";
+
+process.stdin.resume();
+process.stdin.setEncoding("utf-8");
+
+let inputString = "";
+let currentLine = 0;
+
+process.stdin.on("data", (inputStdin) => {
+  inputString += inputStdin;
+});
+
+process.stdin.on("end", (_) => {
+  inputString = inputString.trim().split("\n").map((str) => str.trim());
+  main();
+});
+
+function readLine() {
+  return inputString[currentLine++];
+}
+
+function main() {
+  const wordsList = JSON.parse(readLine().replace(/'/g, '"'));
+  const myString = readLine();
+
+/* Please do not modify anything above this line */
+  
+  // Write your code here
+  const newWordList=wordsList.map((word)=> {
+      if (word.startsWith(myString) || word.endsWith(myString))
+          return word.toUpperCase();
+      else 
+          return word;
+  })
+console.log(newWordList)
+}
+
+
+
+//BUNTY BIRTHDAY
+
+"use strict";
+
+process.stdin.resume();
+process.stdin.setEncoding("utf-8");
+
+let inputString = "";
+let currentLine = 0;
+
+process.stdin.on("data", (inputStdin) => {
+  inputString += inputStdin;
+});
+
+process.stdin.on("end", (_) => {
+  inputString = inputString.trim().split("\n").map((str) => str.trim());
+  main();
+});
+
+function readLine() {
+  return inputString[currentLine++];
+}
+
+function main() {
+  const birthdaysList = JSON.parse(readLine().replace(/'/g, '"'));
+  const buntyBirthday = new Date("2000-06-13");
+
+/* Please do not modify anything above this line */
+
+  // Write your code here
+  let days=0,month=0,years=0;
+  birthdaysList.map(date=> {
+      if (new Date(date).getDate()==buntyBirthday.getDate()) days++
+      if (new Date(date).getMonth()==buntyBirthday.getMonth()) month++
+      if (new Date(date).getFullYear()==buntyBirthday.getFullYear()) years++
+  })
+  console.log(days)
+  console.log(month)
+  console.log(years)
+}
+
